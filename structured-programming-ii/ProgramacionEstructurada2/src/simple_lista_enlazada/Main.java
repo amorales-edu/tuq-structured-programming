@@ -19,6 +19,8 @@ public class Main {
 		lista.Add(1);
 		lista.Add("rojo");
 		lista.Add(3);
+		
+		
 		lista.print();
 		
 		
