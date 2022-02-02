@@ -34,6 +34,37 @@ public class Arbol {
 		}
 	}
 	
-	//public Nodo find(int index)
-	//public void print();
+	public Nodo find(int indexToFind) {
+		 Nodo pointerNodo =  this.raiz;
+		 //recorrer el arbol hasta encontrar un nodo libre
+		 while( pointerNodo != null) {
+			 if(indexToFind == pointerNodo.index) {
+				 return pointerNodo;
+			 }else {
+				 boolean  IsLeft = indexToFind <= pointerNodo.index;
+				 pointerNodo =  IsLeft ? pointerNodo.obtenerIzq(): pointerNodo.obtenerDer();
+			 }
+		 }
+		 return null;
+	}
+	private void printInOrder(Nodo raiz){
+		if(raiz != null) {
+			//S-I
+			printInOrder(raiz.obtenerIzq());
+			//R
+			System.out.print(raiz);
+			//S-D
+			printInOrder(raiz.obtenerDer());
+			
+		}
+	}
+	
+	public void print(OrderType type, Arbol tree) {
+		
+		switch(type) {
+			case INORDER:
+				printInOrder(tree.raiz);
+				break;
+		}
+	}
 }
